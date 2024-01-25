@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import "./App.css";
 import Navbar from "./components/navbar";
 import NoData from "./components/nodata";
 import { data } from "./mock/data";
-// import {ReactComponent as nameSvgHere} from 'twilio'
+
 
 function App() {
   useEffect(()=>{
@@ -28,7 +27,7 @@ function App() {
     setTasks([...newTasks]);
   };
 
-  //method to filter tasks beased on their status
+  
   const getTask = () => {
     const tasksToRender = {
       new: [],
@@ -44,7 +43,7 @@ function App() {
           onDragStart={(e) => onDragStart(e, t.name)}
           draggable
           className="my-[12px] mx-[6px] flex flex-col items-start justify-start p-2 shadow-md  bg-white rounded dark:bg-gray-800 dark:border-gray-700"
-          // style={{ backgroundColor: t.bgcolor }}
+          
         >
             <div className="flex justify-between w-full">
                 <blockquote className="mb-1 text-gray-500  dark:text-gray-400">
@@ -112,7 +111,6 @@ function App() {
               <div className=" w-full h-screen flex justify-between">
 
                 <div className="w-[268px] border-2 rounded touch-pan-right overflow-y-scroll  h-full "
-                  //  className="wip"
                    onDragOver={(e) => e.preventDefault()}
                    onDrop={(e) => {
                      onDrop(e, "new");
@@ -185,30 +183,7 @@ function App() {
                  {getTask().archive.length === 0 ? <NoData/> : getTask().archive}
                   
                 </div>
-
-                
-
-                {/* <div
-                  className="wip"
-                  onDragOver={(e) => e.preventDefault()}
-                  onDrop={(e) => {
-                    onDrop(e, "wip");
-                  }}
-                >
-                  <div className="task-header">In-PROGRESS</div>
-                  {getTask().wip}
-                </div>
-
-                <div
-                  onDragOver={(e) => e.preventDefault()}
-                  onDrop={(e) => onDrop(e, "complete")}
-                >
-                  <div className="task-header">COMPLETED</div>
-                  {getTask().complete}
-                </div> */}
               </div>
-
-
               </div>
         </div>
       </div>
